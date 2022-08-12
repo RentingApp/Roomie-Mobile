@@ -13,6 +13,6 @@ class MyApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: new Scaffold(resizeToAvoidBottomInset: false, body: Login()));
+        home: new Scaffold(resizeToAvoidBottomInset: false, body: Register()));
   }
 }

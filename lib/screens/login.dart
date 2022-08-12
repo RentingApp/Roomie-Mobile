@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
+import '../globals/colors.dart';
 
 void main() {
   runApp(Login());
@@ -11,7 +12,7 @@ class Login extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.white,
+        backgroundColor: whiteColor,
         body: Container(
           width: double.infinity,
           child: Column(
@@ -20,13 +21,13 @@ class Login extends StatelessWidget {
                 clipper: WaveClipperTwo(flip: true),
                 child: Container(
                   height: 420,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.bottomCenter,
                       end: Alignment.topCenter,
-                      colors: <Color>[
-                        Color.fromRGBO(255, 41, 79, 1),
-                        Color.fromRGBO(244, 118, 130, 1),
+                      colors: [
+                        darkPinkColor,
+                        lightPinkColor,
                       ], // Gradient from https://learnui.design/tools/gradient-generator.html
                       tileMode: TileMode.mirror,
                     ),
@@ -46,16 +47,13 @@ class Login extends StatelessWidget {
                     contentPadding: EdgeInsets.fromLTRB(8, 0, 8, -10.0),
 
                     enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Color.fromRGBO(255, 64, 83, 1), width: 2.5),
+                      borderSide: BorderSide(color: darkPinkColor, width: 2.5),
                     ),
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Color.fromRGBO(255, 64, 83, 1), width: 2.5),
+                      borderSide: BorderSide(color: darkPinkColor, width: 2.5),
                     ),
                     hintText: 'Email Address',
-                    hintStyle: TextStyle(
-                        fontSize: 14.0, color: Color.fromRGBO(255, 64, 83, 1)),
+                    hintStyle: TextStyle(fontSize: 14.0, color: darkPinkColor),
                     //contentPadding: EdgeInsets.all(30.0),
                   ),
                 ),
@@ -69,16 +67,13 @@ class Login extends StatelessWidget {
                     contentPadding: EdgeInsets.fromLTRB(8, 0, 8, -10.0),
 
                     enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Color.fromRGBO(255, 64, 83, 1), width: 2.5),
+                      borderSide: BorderSide(color: darkPinkColor, width: 2.5),
                     ),
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Color.fromRGBO(255, 64, 83, 1), width: 2.5),
+                      borderSide: BorderSide(color: darkPinkColor, width: 2.5),
                     ),
                     hintText: 'Password',
-                    hintStyle: TextStyle(
-                        fontSize: 14.0, color: Color.fromRGBO(255, 64, 83, 1)),
+                    hintStyle: TextStyle(fontSize: 14.0, color: darkPinkColor),
                     //contentPadding: EdgeInsets.all(30.0),
                   ),
                 ),
@@ -91,9 +86,7 @@ class Login extends StatelessWidget {
                   children: [
                     Text(
                       'Forget password?',
-                      style: TextStyle(
-                          fontSize: 12.0,
-                          color: Color.fromRGBO(255, 64, 83, 1)),
+                      style: TextStyle(fontSize: 12.0, color: darkPinkColor),
                     )
                   ],
                 ),
@@ -104,7 +97,7 @@ class Login extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 1),
                 decoration: BoxDecoration(
                     borderRadius: new BorderRadius.circular(30.0),
-                    border: Border.all(color: Color.fromRGBO(221, 45, 45, 1))),
+                    border: Border.all(color: warningColor)),
                 child:
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   Container(
@@ -117,7 +110,7 @@ class Login extends StatelessWidget {
                   Text(
                     'wrong email or password',
                     style: TextStyle(
-                      color: Color.fromRGBO(221, 45, 45, 1),
+                      color: warningColor,
                       fontSize: 10,
                     ),
                   )
@@ -130,7 +123,7 @@ class Login extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      primary: Color.fromRGBO(255, 64, 83, 1),
+                      primary: darkPinkColor,
                       shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0),
                       ),
@@ -154,10 +147,10 @@ class Login extends StatelessWidget {
                   child: Text(
                     'No account? Create a new one!',
                     style: TextStyle(
-                        letterSpacing: 0.1,
-                        color: Color.fromRGBO(255, 64, 83, 1),
-                        decoration: TextDecoration.underline,
-                        fontWeight: FontWeight.bold),
+                      letterSpacing: 0.1,
+                      color: darkPinkColor,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
                 ),
               )

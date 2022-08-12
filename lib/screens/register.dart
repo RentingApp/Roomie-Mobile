@@ -1,3 +1,4 @@
+import 'package:first_app/globals/colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,8 +15,8 @@ class Register extends StatelessWidget {
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
               colors: [
-            Color.fromRGBO(255, 41, 79, 1),
-            Color.fromRGBO(244, 118, 130, 1),
+            darkPinkColor,
+            lightPinkColor,
           ])),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -28,13 +29,13 @@ class Register extends StatelessWidget {
                 contentPadding: EdgeInsets.fromLTRB(8, 0, 8, -10.0),
 
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 hintText: 'Username',
-                hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
+                hintStyle: TextStyle(fontSize: 14.0, color: whiteColor),
                 //contentPadding: EdgeInsets.all(30.0),
               ),
             ),
@@ -48,13 +49,13 @@ class Register extends StatelessWidget {
                 contentPadding: EdgeInsets.fromLTRB(8, 0, 8, -10.0),
 
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 hintText: 'Name',
-                hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
+                hintStyle: TextStyle(fontSize: 14.0, color: whiteColor),
                 //contentPadding: EdgeInsets.all(30.0),
               ),
             ),
@@ -68,13 +69,13 @@ class Register extends StatelessWidget {
                 contentPadding: EdgeInsets.fromLTRB(8, 0, 8, -10.0),
 
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 hintText: 'Surname',
-                hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
+                hintStyle: TextStyle(fontSize: 14.0, color: whiteColor),
                 //contentPadding: EdgeInsets.all(30.0),
               ),
             ),
@@ -88,13 +89,13 @@ class Register extends StatelessWidget {
                 contentPadding: EdgeInsets.fromLTRB(8, 0, 8, -10.0),
 
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 hintText: 'Date of birth',
-                hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
+                hintStyle: TextStyle(fontSize: 14.0, color: whiteColor),
                 //contentPadding: EdgeInsets.all(30.0),
               ),
             ),
@@ -108,13 +109,13 @@ class Register extends StatelessWidget {
                 contentPadding: EdgeInsets.fromLTRB(8, 0, 8, -10.0),
 
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 hintText: 'Email Address',
-                hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
+                hintStyle: TextStyle(fontSize: 14.0, color: whiteColor),
                 //contentPadding: EdgeInsets.all(30.0),
               ),
             ),
@@ -128,13 +129,13 @@ class Register extends StatelessWidget {
                 contentPadding: EdgeInsets.fromLTRB(8, 0, 8, -10.0),
 
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 hintText: 'Password',
-                hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
+                hintStyle: TextStyle(fontSize: 14.0, color: whiteColor),
                 //contentPadding: EdgeInsets.all(30.0),
               ),
             ),
@@ -148,13 +149,13 @@ class Register extends StatelessWidget {
                 contentPadding: EdgeInsets.fromLTRB(8, 0, 8, -10.0),
 
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.5),
+                  borderSide: BorderSide(color: whiteColor, width: 2.5),
                 ),
                 hintText: 'Password(again)',
-                hintStyle: TextStyle(fontSize: 14.0, color: Colors.white),
+                hintStyle: TextStyle(fontSize: 14.0, color: whiteColor),
                 //contentPadding: EdgeInsets.all(30.0),
               ),
             ),
@@ -164,7 +165,7 @@ class Register extends StatelessWidget {
             margin: const EdgeInsets.symmetric(vertical: 35),
             padding: const EdgeInsets.symmetric(vertical: 1),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: whiteColor,
               borderRadius: new BorderRadius.circular(30.0),
             ),
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -178,7 +179,7 @@ class Register extends StatelessWidget {
               Text(
                 'wrong email or password',
                 style: TextStyle(
-                  color: Color.fromRGBO(221, 45, 45, 1),
+                  color: warningColor,
                   fontSize: 10,
                 ),
               )
@@ -191,7 +192,7 @@ class Register extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.white,
+                  primary: whiteColor,
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),
                   ),
@@ -199,9 +200,7 @@ class Register extends StatelessWidget {
                 child: Text(
                   'REGISTER',
                   style: TextStyle(
-                      fontSize: 20,
-                      letterSpacing: 0.1,
-                      color: Color.fromRGBO(255, 41, 79, 1)),
+                      fontSize: 20, letterSpacing: 0.1, color: darkPinkColor),
                 ),
               ),
             ),
