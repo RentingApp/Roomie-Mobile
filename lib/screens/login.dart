@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import '../globals/colors.dart';
+import "./register.dart";
 
 void main() {
   runApp(Login());
@@ -142,7 +143,10 @@ class Login extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 20.0),
                 child: GestureDetector(
                   onTap: () {
-                    print('Text Clicked');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Register()),
+                    );
                   },
                   child: Text(
                     'No account? Create a new one!',
