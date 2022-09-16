@@ -34,6 +34,14 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  http: ^0.13.5
+  shared_preferences: ^2.0.15
+  jwt_decode: ^0.3.1
+  provider: ^6.0.3
+  flutter_bootstrap: ^2.0.0
+  responsive_grid: ^2.1.0
+  reflectable: ^3.0.9
+  url_launcher: ^6.1.5
   
 
 dev_dependencies:
@@ -62,6 +70,29 @@ flutter:
   assets:
     - assets/images/warning.png
     - assets/images/boys.png
+    - assets/images/ads.png
+    - assets/images/home.png
+    - assets/images/postAds.png
+    - assets/images/logoWhite.png
+    - assets/images/samplePP.png
+    - assets/images/samplePP2.png
+    - assets/images/samplePP3.png
+    - assets/images/sampleAdPhoto.png
+    - assets/images/logOut.png
+    - assets/images/settings.png
+    - assets/images/myAds.png
+    - assets/images/saved.png
+    - assets/images/homeScreenTop.png
+    - assets/images/homeScreenAbout.png
+    - assets/images/homeScreenVision.png
+    - assets/images/homeScreenContact.png
+    - assets/images/homeScreenFemale.png
+    - assets/images/homeScreenMale.png
+    - assets/images/homeScreenReact.png
+    - assets/images/homeScreenDotNet.png
+    - assets/images/homeScreenFlutter.png
+    - assets/images/homeScreenGithub.png
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
