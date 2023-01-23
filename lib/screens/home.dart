@@ -1,27 +1,25 @@
-import 'package:first_app/globals/colors.dart';
-import 'package:first_app/widgets/navbar.dart';
+import '../globals/colors.dart';
+import '../widgets/bottomNavigationBar.dart';
 import 'package:flutter/material.dart';
-import "../widgets/navbar.dart";
 import 'package:responsive_grid/responsive_grid.dart';
 import '../widgets/appbar.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/gestures.dart';
 
-void main() {
-  runApp(Home());
-}
-
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(70),
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [CustomAppbar()]),
-        ),
-        bottomNavigationBar: Navbar(),
+        backgroundColor: greyColor,
+        appBar: ModalRoute.of(context)?.settings.name != '/home'
+            ? PreferredSize(
+                preferredSize: const Size.fromHeight(50),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [CustomAppbar()]),
+              )
+            : null,
+        bottomNavigationBar: bottomNavigationBar(),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -336,7 +334,7 @@ class Home extends StatelessWidget {
               Container(
                   margin: EdgeInsets.only(top: 10),
                   child: Text(
-                    'Mobile-End Development',
+                    'Mobile Development',
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.normal,

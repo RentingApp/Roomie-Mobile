@@ -1,38 +1,44 @@
+import '../globals/colors.dart';
 import 'package:flutter/material.dart';
-import '../models/registerResponse.dart';
 
 ShowDialog(BuildContext context, dynamic errorTitle, dynamic descript) {
-  var getInfo = null;
-  if (descript is String) {
-    getInfo = Text(descript);
-  }
-  /*for (var element in descript) {
-    print(element.description);
-  }*/
-  /* descript.map((e) {
-    return Text(e.description);
-  }).toList();*/
-
   return showDialog<void>(
+    barrierColor: Colors.black38,
     context: context,
     barrierDismissible: false, // user must tap button!
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text(errorTitle),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(18.0))),
+        backgroundColor: greyColor,
+        title: Text(
+          errorTitle,
+          style: TextStyle(
+              color: blackColor, fontWeight: FontWeight.bold, fontSize: 18),
+        ),
         content: SingleChildScrollView(
-          child: ListBody(
-            children: <Widget>[
-              (getInfo == null
-                  ? descript.map((e) {
-                      return Text(e.description);
-                    }).toList()
-                  : getInfo)
-            ],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: descript.map<Widget>((e) {
+              return Text(
+                e,
+                style: TextStyle(
+                    color: blackColor,
+                    fontWeight: FontWeight.normal,
+                    fontSize: 16),
+              );
+            }).toList(),
           ),
         ),
         actions: <Widget>[
           TextButton(
-            child: const Text('OK'),
+            child: const Text(
+              'OK',
+              style: TextStyle(
+                  color: darkPinkColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16),
+            ),
             onPressed: () {
               Navigator.of(context).pop();
             },
