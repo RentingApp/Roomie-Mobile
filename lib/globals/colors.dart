@@ -8,3 +8,4 @@ const lightPinkColorO50 = Color.fromRGBO(244, 118, 130, 1 / 2);
 const whiteColor = Colors.white;
 const warningColor = Color.fromRGBO(221, 45, 45, 1);
 const greyColor = Color.fromRGBO(224, 224, 224, 1);
+const greyColor1 = Color.fromRGBO(224, 224, 224, 1);
