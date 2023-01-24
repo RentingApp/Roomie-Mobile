@@ -1,33 +1,20 @@
-import './Register/registerA.dart';
-import './Register/registerB.dart';
-import './Register/registerC.dart';
-
-import '../globals/colors.dart';
+import 'registerStepA.dart';
+import 'registerStepB.dart';
+import 'registerStepC.dart';
+import '../../globals/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
+import '../../providers/registerInputs.dart';
+import 'package:provider/provider.dart';
 
-class MyApp10 extends StatelessWidget {
-  static const String _title = 'Flutter Code Sample';
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: _title,
-      home: Scaffold(
-        body: MyWidget(),
-      ),
-    );
-  }
-}
-
-class MyWidget extends StatefulWidget {
-  const MyWidget({Key? key}) : super(key: key);
+class Register extends StatefulWidget {
+  const Register({Key? key}) : super(key: key);
 
   @override
-  State<MyWidget> createState() => _MyWidgetState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _MyWidgetState extends State<MyWidget> {
+class _RegisterState extends State<Register> {
   PageController controller = PageController(initialPage: 0);
   ImageProvider logo = AssetImage("assets/images/registerC.png");
   int pageIndex = 0;
@@ -142,9 +129,45 @@ class _MyWidgetState extends State<MyWidget> {
                   alignment: Alignment.centerRight,
                   child: GestureDetector(
                       onTap: () {
-                        controller.nextPage(
-                            duration: Duration(milliseconds: 500),
-                            curve: Curves.easeIn);
+                        if (pageIndex == 0) {
+                          Provider.of<RegisterInputs>(context, listen: false)
+                              .controlStepA();
+
+                          if (Provider.of<RegisterInputs>(context,
+                                      listen: false)
+                                  .getStepAStatus !=
+                              'error') {
+                            controller.nextPage(
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.easeIn);
+                          }
+                        }
+
+                        if (pageIndex == 1) {
+                          Provider.of<RegisterInputs>(context, listen: false)
+                              .controlStepB();
+
+                          if (Provider.of<RegisterInputs>(context,
+                                      listen: false)
+                                  .getStepBStatus !=
+                              'error') {
+                            controller.nextPage(
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.easeIn);
+                          }
+                        }
+
+                        if (pageIndex == 2) {
+                          Provider.of<RegisterInputs>(context, listen: false)
+                              .controlStepC();
+
+                          if (Provider.of<RegisterInputs>(context,
+                                      listen: false)
+                                  .getStepCStatus !=
+                              'error') {
+                            Navigator.pushNamed(context, '/login');
+                          }
+                        }
                       },
                       child: Text(pageIndex == 2 ? 'COMPLETE' : 'NEXT',
                           style: TextStyle(
@@ -169,18 +192,14 @@ class _MyWidgetState extends State<MyWidget> {
           itemCount: 3,
           itemBuilder: (context, index) {
             if (index == 0) {
-              return RegisterA();
+              return RegisterStepA();
             }
             if (index == 1) {
-              return RegisterB();
+              return RegisterStepB();
             }
 
-            return RegisterC();
-          }, /*const <Widget>[
-            RegisterA(),
-            RegisterB(),
-            RegisterC(),
-          ],*/
+            return RegisterStepC();
+          },
         ));
   }
 }

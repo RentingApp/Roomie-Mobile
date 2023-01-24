@@ -1,15 +1,20 @@
 import '../../globals/colors.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/loadingSpinner.dart';
+import 'package:provider/provider.dart';
+import '../../providers/registerInputs.dart';
 
-class RegisterA extends StatefulWidget {
-  const RegisterA({Key? key}) : super(key: key);
+class RegisterStepA extends StatefulWidget {
+  const RegisterStepA({Key? key}) : super(key: key);
 
   @override
-  State<RegisterA> createState() => _RegisterAState();
+  State<RegisterStepA> createState() => _RegisterStepAState();
 }
 
-class _RegisterAState extends State<RegisterA> {
+class _RegisterStepAState extends State<RegisterStepA> {
+  final usernameController = TextEditingController();
+  final firstNameController = TextEditingController();
+  final lastNameController = TextEditingController();
   bool isLoading = true;
   @override
   void didChangeDependencies() {
@@ -27,10 +32,6 @@ class _RegisterAState extends State<RegisterA> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: greyColor,
-        /*appBar: AppBar(
-          elevation: 0,
-          backgroundColor: greyColor,
-        ),*/
         body: SingleChildScrollView(
             child: Center(
                 child: isLoading
@@ -64,9 +65,12 @@ class _RegisterAState extends State<RegisterA> {
                             width: MediaQuery.of(context).size.width * 8 / 10,
                             child: TextField(
                               onChanged: (text) {
-                                //inputHandler();
+                                Provider.of<RegisterInputs>(context,
+                                        listen: false)
+                                    .setUsername(text);
                               },
                               //focusNode: _focusTitle,
+                              controller: usernameController,
                               textAlign: TextAlign.start,
                               decoration: InputDecoration(
                                 contentPadding:
@@ -93,9 +97,12 @@ class _RegisterAState extends State<RegisterA> {
                             width: MediaQuery.of(context).size.width * 8 / 10,
                             child: TextField(
                               onChanged: (text) {
-                                //inputHandler();
+                                Provider.of<RegisterInputs>(context,
+                                        listen: false)
+                                    .setFirstName(text);
                               },
                               //focusNode: _focusTitle,
+                              controller: firstNameController,
                               textAlign: TextAlign.start,
                               decoration: InputDecoration(
                                 contentPadding:
@@ -122,9 +129,12 @@ class _RegisterAState extends State<RegisterA> {
                             width: MediaQuery.of(context).size.width * 8 / 10,
                             child: TextField(
                               onChanged: (text) {
-                                //inputHandler();
+                                Provider.of<RegisterInputs>(context,
+                                        listen: false)
+                                    .setLastName(text);
                               },
                               //focusNode: _focusTitle,
+                              controller: lastNameController,
                               textAlign: TextAlign.start,
                               decoration: InputDecoration(
                                 contentPadding:
@@ -146,6 +156,19 @@ class _RegisterAState extends State<RegisterA> {
                               //controller: titleController,
                             ),
                           ),
+                          if (Provider.of<RegisterInputs>(context, listen: true)
+                                  .getStepAStatus ==
+                              'error')
+                            Container(
+                              margin: EdgeInsets.only(top: 15),
+                              child: Text(
+                                'All areas can\'t be non-filled!',
+                                style: TextStyle(
+                                    color: warningColor,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                            )
                         ],
                       )))));
   }

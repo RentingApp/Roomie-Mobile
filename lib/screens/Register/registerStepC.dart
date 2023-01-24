@@ -1,15 +1,17 @@
 import '../../globals/colors.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/loadingSpinner.dart';
+import 'package:provider/provider.dart';
+import '../../providers/registerInputs.dart';
 
-class RegisterC extends StatefulWidget {
-  const RegisterC({Key? key}) : super(key: key);
+class RegisterStepC extends StatefulWidget {
+  const RegisterStepC({Key? key}) : super(key: key);
 
   @override
-  State<RegisterC> createState() => _RegisterCState();
+  State<RegisterStepC> createState() => _RegisterStepCState();
 }
 
-class _RegisterCState extends State<RegisterC> {
+class _RegisterStepCState extends State<RegisterStepC> {
   bool isLoading = true;
 
   @override
@@ -64,7 +66,9 @@ class _RegisterCState extends State<RegisterC> {
                             width: MediaQuery.of(context).size.width * 8 / 10,
                             child: TextField(
                               onChanged: (text) {
-                                //inputHandler();
+                                Provider.of<RegisterInputs>(context,
+                                        listen: false)
+                                    .setEmail(text);
                               },
                               //focusNode: _focusTitle,
                               textAlign: TextAlign.start,
@@ -93,8 +97,11 @@ class _RegisterCState extends State<RegisterC> {
                             width: MediaQuery.of(context).size.width * 8 / 10,
                             child: TextField(
                               onChanged: (text) {
-                                //inputHandler();
+                                Provider.of<RegisterInputs>(context,
+                                        listen: false)
+                                    .setPassword(text);
                               },
+                              obscureText: true,
                               //focusNode: _focusTitle,
                               textAlign: TextAlign.start,
                               decoration: InputDecoration(
@@ -122,9 +129,11 @@ class _RegisterCState extends State<RegisterC> {
                             width: MediaQuery.of(context).size.width * 8 / 10,
                             child: TextField(
                               onChanged: (text) {
-                                //inputHandler();
+                                Provider.of<RegisterInputs>(context,
+                                        listen: false)
+                                    .setPasswordAgain(text);
                               },
-                              //focusNode: _focusTitle,
+                              obscureText: true,
                               textAlign: TextAlign.start,
                               decoration: InputDecoration(
                                 contentPadding:
@@ -146,6 +155,19 @@ class _RegisterCState extends State<RegisterC> {
                               //controller: titleController,
                             ),
                           ),
+                          if (Provider.of<RegisterInputs>(context, listen: true)
+                                  .getStepCStatus ==
+                              'error')
+                            Container(
+                              margin: EdgeInsets.only(top: 15),
+                              child: Text(
+                                'All areas can\'t be non-filled!',
+                                style: TextStyle(
+                                    color: warningColor,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.normal),
+                              ),
+                            )
                         ],
                       )))));
   }

@@ -26,7 +26,6 @@ class _LoginState extends State<Login> {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
 
   Future<void> inputHandler() async {
-    print("sadsasa");
     FocusManager.instance.primaryFocus?.unfocus();
 
     if (emailController.text.length == 0 ||
@@ -125,7 +124,7 @@ class _LoginState extends State<Login> {
                         ClipPath(
                           clipper: WaveClipperTwo(flip: true),
                           child: Container(
-                            height: 420,
+                            height: MediaQuery.of(context).size.height * 5 / 10,
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
                                 begin: Alignment.bottomCenter,
@@ -133,14 +132,14 @@ class _LoginState extends State<Login> {
                                 colors: [
                                   darkPinkColor,
                                   orangeColor,
-                                ], // Gradient from https://learnui.design/tools/gradient-generator.html
+                                ],
                                 tileMode: TileMode.mirror,
                               ),
                             ),
                             child: Center(
                                 child: Image.asset(
                               'assets/images/boys.png',
-                              width: 330,
+                              width: MediaQuery.of(context).size.width * 8 / 10,
                             )),
                           ),
                         ),
